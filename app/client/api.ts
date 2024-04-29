@@ -70,7 +70,14 @@ export abstract class LLMApi {
   abstract models(): Promise<LLMModel[]>;
 }
 
-type ProviderName = "openai" | "azure" | "claude" | "palm";
+type ProviderName =
+  | "openai"
+  | "azure"
+  | "claude"
+  | "palm"
+  | "groq"
+  | "theb"
+  | "chatnio";
 
 interface Model {
   name: string;
@@ -162,6 +169,9 @@ export function getHeaders() {
   const modelConfig = useChatStore.getState().currentSession().mask.modelConfig;
   const isGoogle = modelConfig.model.startsWith("gemini");
   const isAzure = accessStore.provider === ServiceProvider.Azure;
+  const isGroq = accessStore.provider === ServiceProvider.Groq;
+  const isChatNio = accessStore.provider === ServiceProvider.ChatNio;
+  const isTheB = accessStore.provider === ServiceProvider.TheB;
   const authHeader = isAzure ? "api-key" : "Authorization";
   const apiKey = isGoogle
     ? accessStore.googleApiKey
