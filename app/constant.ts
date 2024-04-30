@@ -174,8 +174,8 @@ const anthropicModels = [
   // "claude-2.0",
   // "claude-2.1",
   // "claude-3-sonnet-20240229",
-  // "claude-3-opus-20240229",
-  "claude-3-haiku-20240307",
+  "claude-3-opus-20240229",
+  // "claude-3-haiku-20240307",
 ];
 
 const groqModels = [
@@ -189,11 +189,9 @@ const chatNioModels = [
   "gpt-4-turbo",
   "gpt-4-turbo-preview",
   "gpt-4-vision-preview",
-  "gpt-4-all",
-  "azure-gpt-3.5-turbo",
 ];
 
-const thebModels = ["gpt-3.5-turbo", "mixtral-8x22b", "theb-ai"];
+const thebModels = ["theb-ai", "gpt-3.5-turbo", "mixtral-8x22b"];
 
 export const DEFAULT_MODELS = [
   ...openaiModels.map((name) => ({
