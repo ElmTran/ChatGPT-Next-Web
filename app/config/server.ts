@@ -28,6 +28,21 @@ declare global {
       AZURE_API_KEY?: string;
       AZURE_API_VERSION?: string;
 
+      // groq only
+      GROQ_API_KEY?: string;
+      GROQ_URL?: string;
+      GROQ_API_VERSION?: string;
+
+      // theb only
+      THEB_API_KEY?: string;
+      THEB_URL?: string;
+      THEB_API_VERSION?: string;
+
+      // chatnio only
+      CHATNIO_API_KEY?: string;
+      CHATNIO_URL?: string;
+      CHATNIO_API_VERSION?: string;
+
       // google only
       GOOGLE_API_KEY?: string;
       GOOGLE_URL?: string;
@@ -71,6 +86,9 @@ export const getServerSideConfig = () => {
   }
 
   const isAzure = !!process.env.AZURE_URL;
+  const isGroq = !!process.env.GROQ_API_KEY;
+  const isTheB = !!process.env.THEB_API_KEY;
+  const isChatNio = !!process.env.CHATNIO_API_KEY;
   const isGoogle = !!process.env.GOOGLE_API_KEY;
   const isAnthropic = !!process.env.ANTHROPIC_API_KEY;
 
@@ -95,6 +113,21 @@ export const getServerSideConfig = () => {
     azureUrl: process.env.AZURE_URL,
     azureApiKey: process.env.AZURE_API_KEY,
     azureApiVersion: process.env.AZURE_API_VERSION,
+
+    isGroq,
+    groqApiKey: process.env.GROQ_API_KEY,
+    groqUrl: process.env.GROQ_URL,
+    groqApiVersion: process.env.GROQ_API_VERSION,
+
+    isTheB,
+    theBApiKey: process.env.THEB_API_KEY,
+    theBUrl: process.env.THEB_URL,
+    theBApiVersion: process.env.THEB_API_VERSION,
+
+    isChatNio,
+    chatNioApiKey: process.env.CHATNIO_API_KEY,
+    chatNioUrl: process.env.CHATNIO_URL,
+    chatNioApiVersion: process.env.CHATNIO_API_VERSION,
 
     isGoogle,
     googleApiKey: process.env.GOOGLE_API_KEY,

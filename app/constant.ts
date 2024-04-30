@@ -100,7 +100,7 @@ export const Azure = {
 };
 
 export const Groq = {
-  ExampleEndpoint: "https://api.groq.com",
+  ExampleEndpoint: "https://api.groq.com/openai",
 };
 
 export const TheB = {
@@ -185,7 +185,7 @@ const groqModels = [
   "gemma-7b-it",
 ];
 
-const chatnioModels = [
+const chatNioModels = [
   "gpt-4-turbo",
   "gpt-4-turbo-preview",
   "gpt-4-vision-preview",
@@ -232,13 +232,13 @@ export const DEFAULT_MODELS = [
       providerType: "groq",
     },
   })),
-  ...chatnioModels.map((name) => ({
+  ...chatNioModels.map((name) => ({
     name,
     available: true,
     provider: {
-      id: "chatnio",
+      id: "chatNio",
       providerName: "ChatNio",
-      providerType: "chatnio",
+      providerType: "chatNio",
     },
   })),
   ...thebModels.map((name) => ({

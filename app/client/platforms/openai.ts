@@ -64,6 +64,9 @@ export class ChatGPTApi implements LLMApi {
 
     if (accessStore.useCustomConfig) {
       const isAzure = accessStore.provider === ServiceProvider.Azure;
+      const isGroq = accessStore.provider === ServiceProvider.Groq;
+      const isTheB = accessStore.provider === ServiceProvider.TheB;
+      const isChatNio = accessStore.provider === ServiceProvider.ChatNio;
 
       if (isAzure && !accessStore.isValidAzure()) {
         throw Error(
@@ -73,9 +76,18 @@ export class ChatGPTApi implements LLMApi {
 
       if (isAzure) {
         path = makeAzurePath(path, accessStore.azureApiVersion);
+        baseUrl = accessStore.azureUrl;
+      } else if (isGroq) {
+        baseUrl = accessStore.groqUrl;
+      } else if (isTheB) {
+        baseUrl = accessStore.theBUrl;
+      } else if (isChatNio) {
+        baseUrl = accessStore.chatNioUrl;
+      } else {
+        baseUrl = accessStore.openaiUrl;
       }
 
-      baseUrl = isAzure ? accessStore.azureUrl : accessStore.openaiUrl;
+      // baseUrl = isAzure ? accessStore.azureUrl : accessStore.openaiUrl;
     }
 
     if (baseUrl.length === 0) {

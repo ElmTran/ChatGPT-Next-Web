@@ -313,6 +313,54 @@ const cn = {
           SubTitle: "选择指定的部分版本",
         },
       },
+      Groq: {
+        ApiKey: {
+          Title: "API 密钥",
+          SubTitle: "从 Groq 获取您的 API 密钥",
+          Placeholder: "输入您的 Groq API 密钥",
+        },
+
+        Endpoint: {
+          Title: "终端地址",
+          SubTitle: "示例：",
+        },
+        ApiVersion: {
+          Title: "API 版本",
+          SubTitle: "选择一个特定的 API 版本",
+        },
+      },
+      TheB: {
+        ApiKey: {
+          Title: "API 密钥",
+          SubTitle: "从 TheB 获取您的 API 密钥",
+          Placeholder: "输入您的 TheB API 密钥",
+        },
+
+        Endpoint: {
+          Title: "终端地址",
+          SubTitle: "示例：",
+        },
+        ApiVersion: {
+          Title: "API 版本",
+          SubTitle: "选择一个特定的 API 版本",
+        },
+      },
+      ChatNio: {
+        ApiKey: {
+          Title: "API 密钥",
+          SubTitle: "从 ChatNio 获取您的 API 密钥",
+          Placeholder: "输入您的 ChatNio API 密钥",
+        },
+
+        Endpoint: {
+          Title: "终端地址",
+          SubTitle: "示例：",
+        },
+        ApiVersion: {
+          Title: "API 版本",
+          SubTitle: "选择一个特定的 API 版本",
+        },
+      },
       Anthropic: {
         ApiKey: {
           Title: "接口密钥",

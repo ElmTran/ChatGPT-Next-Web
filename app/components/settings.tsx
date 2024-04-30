@@ -1064,6 +1064,124 @@ export function Settings() {
                       </ListItem>
                     </>
                   )}
+                  {accessStore.provider === ServiceProvider.Groq && (
+                    <>
+                      <ListItem
+                        title={Locale.Settings.Access.Groq.Endpoint.Title}
+                        subTitle={Locale.Settings.Access.Groq.Endpoint.SubTitle}
+                      >
+                        <input
+                          type="text"
+                          value={accessStore.groqUrl}
+                          placeholder="https://api.groq.com/openai"
+                          onChange={(e) =>
+                            accessStore.update(
+                              (access) =>
+                                (access.groqUrl = e.currentTarget.value),
+                            )
+                          }
+                        ></input>
+                      </ListItem>
+                      <ListItem
+                        title={Locale.Settings.Access.Groq.ApiKey.Title}
+                        subTitle={Locale.Settings.Access.Groq.ApiKey.SubTitle}
+                      >
+                        <PasswordInput
+                          value={accessStore.groqApiKey}
+                          type="text"
+                          placeholder={
+                            Locale.Settings.Access.Groq.ApiKey.Placeholder
+                          }
+                          onChange={(e) => {
+                            accessStore.update(
+                              (access) =>
+                                (access.groqApiKey = e.currentTarget.value),
+                            );
+                          }}
+                        />
+                      </ListItem>
+                    </>
+                  )}
+                  {accessStore.provider === ServiceProvider.TheB && (
+                    <>
+                      <ListItem
+                        title={Locale.Settings.Access.TheB.Endpoint.Title}
+                        subTitle={Locale.Settings.Access.TheB.Endpoint.SubTitle}
+                      >
+                        <input
+                          type="text"
+                          value={accessStore.theBUrl}
+                          placeholder="https://api.theb.ai"
+                          onChange={(e) =>
+                            accessStore.update(
+                              (access) =>
+                                (access.theBUrl = e.currentTarget.value),
+                            )
+                          }
+                        ></input>
+                      </ListItem>
+                      <ListItem
+                        title={Locale.Settings.Access.TheB.ApiKey.Title}
+                        subTitle={Locale.Settings.Access.TheB.ApiKey.SubTitle}
+                      >
+                        <PasswordInput
+                          value={accessStore.theBApiKey}
+                          type="text"
+                          placeholder={
+                            Locale.Settings.Access.TheB.ApiKey.Placeholder
+                          }
+                          onChange={(e) => {
+                            accessStore.update(
+                              (access) =>
+                                (access.theBApiKey = e.currentTarget.value),
+                            );
+                          }}
+                        />
+                      </ListItem>
+                    </>
+                  )}
+                  {accessStore.provider === ServiceProvider.ChatNio && (
+                    <>
+                      <ListItem
+                        title={Locale.Settings.Access.ChatNio.Endpoint.Title}
+                        subTitle={
+                          Locale.Settings.Access.ChatNio.Endpoint.SubTitle
+                        }
+                      >
+                        <input
+                          type="text"
+                          value={accessStore.chatNioUrl}
+                          placeholder="https://api.chatnio.net"
+                          onChange={(e) =>
+                            accessStore.update(
+                              (access) =>
+                                (access.chatNioUrl = e.currentTarget.value),
+                            )
+                          }
+                        ></input>
+                      </ListItem>
+                      <ListItem
+                        title={Locale.Settings.Access.ChatNio.ApiKey.Title}
+                        subTitle={
+                          Locale.Settings.Access.ChatNio.ApiKey.SubTitle
+                        }
+                      >
+                        <PasswordInput
+                          value={accessStore.chatNioApiKey}
+                          type="text"
+                          placeholder={
+                            Locale.Settings.Access.ChatNio.ApiKey.Placeholder
+                          }
+                          onChange={(e) => {
+                            accessStore.update(
+                              (access) =>
+                                (access.chatNioApiKey = e.currentTarget.value),
+                            );
+                          }}
+                        />
+                      </ListItem>
+                    </>
+                  )}
                   {accessStore.provider === ServiceProvider.Google && (
                     <>
                       <ListItem

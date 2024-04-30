@@ -32,6 +32,21 @@ const DEFAULT_ACCESS_STATE = {
   azureApiKey: "",
   azureApiVersion: "2023-08-01-preview",
 
+  // groq
+  groqUrl: "",
+  groqApiKey: "",
+  groqApiVersion: "",
+
+  // theb
+  theBUrl: "",
+  theBApiKey: "",
+  theBApiVersion: "",
+
+  // chatNio
+  chatNioUrl: "",
+  chatNioApiKey: "",
+  chatNioApiVersion: "",
+
   // google ai studio
   googleUrl: "",
   googleApiKey: "",

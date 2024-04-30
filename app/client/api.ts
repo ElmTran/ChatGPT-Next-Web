@@ -77,7 +77,7 @@ type ProviderName =
   | "palm"
   | "groq"
   | "theb"
-  | "chatnio";
+  | "chatNio";
 
 interface Model {
   name: string;
@@ -177,6 +177,12 @@ export function getHeaders() {
     ? accessStore.googleApiKey
     : isAzure
     ? accessStore.azureApiKey
+    : isGroq
+    ? accessStore.groqApiKey
+    : isTheB
+    ? accessStore.theBApiKey
+    : isChatNio
+    ? accessStore.chatNioApiKey
     : accessStore.openaiApiKey;
   const clientConfig = getClientConfig();
   const makeBearer = (s: string) => `${isAzure ? "" : "Bearer "}${s.trim()}`;

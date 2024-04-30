@@ -316,6 +316,51 @@ const en: LocaleType = {
           SubTitle: "Check your api version from azure console",
         },
       },
+      Groq: {
+        ApiKey: {
+          Title: "Groq API Key",
+          SubTitle: "Check your api key from Groq console",
+          Placeholder: "Groq Api Key",
+        },
+        Endpoint: {
+          Title: "Groq Endpoint",
+          SubTitle: "Example: ",
+        },
+        ApiVersion: {
+          Title: "API Version (specific to groq)",
+          SubTitle: "Select a specific API version",
+        },
+      },
+      TheB: {
+        ApiKey: {
+          Title: "TheB API Key",
+          SubTitle: "Check your api key from TheB console",
+          Placeholder: "TheB Api Key",
+        },
+        Endpoint: {
+          Title: "TheB Endpoint",
+          SubTitle: "Example: ",
+        },
+        ApiVersion: {
+          Title: "API Version (specific to theb)",
+          SubTitle: "Select a specific API version",
+        },
+      },
+      ChatNio: {
+        ApiKey: {
+          Title: "ChatNio API Key",
+          SubTitle: "Check your api key from ChatNio console",
+          Placeholder: "ChatNio Api Key",
+        },
+        Endpoint: {
+          Title: "ChatNio Endpoint",
+          SubTitle: "Example: ",
+        },
+        ApiVersion: {
+          Title: "API Version (specific to chatNio)",
+          SubTitle: "Select a specific API version",
+        },
+      },
       Anthropic: {
         ApiKey: {
           Title: "Anthropic API Key",
