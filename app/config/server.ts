@@ -66,6 +66,22 @@ const ACCESS_CODES = (function getAccessCodes(): Set<string> {
   }
 })();
 
+function getApiKey(keys?: string) {
+  const apiKeyEnvVar = keys ?? "";
+  const apiKeys = apiKeyEnvVar.split(",").map((v) => v.trim());
+  const randomIndex = Math.floor(Math.random() * apiKeys.length);
+  const apiKey = apiKeys[randomIndex];
+  if (apiKey) {
+    console.log(
+      `[Server Config] using ${randomIndex + 1} of ${
+        apiKeys.length
+      } api key - ${apiKey}`,
+    );
+  }
+
+  return apiKey;
+}
+
 export const getServerSideConfig = () => {
   if (typeof process === "undefined") {
     throw Error(
@@ -92,13 +108,13 @@ export const getServerSideConfig = () => {
   const isGoogle = !!process.env.GOOGLE_API_KEY;
   const isAnthropic = !!process.env.ANTHROPIC_API_KEY;
 
-  const apiKeyEnvVar = process.env.OPENAI_API_KEY ?? "";
-  const apiKeys = apiKeyEnvVar.split(",").map((v) => v.trim());
-  const randomIndex = Math.floor(Math.random() * apiKeys.length);
-  const apiKey = apiKeys[randomIndex];
-  console.log(
-    `[Server Config] using ${randomIndex + 1} of ${apiKeys.length} api key`,
-  );
+  // const apiKeyEnvVar = process.env.OPENAI_API_KEY ?? "";
+  // const apiKeys = apiKeyEnvVar.split(",").map((v) => v.trim());
+  // const randomIndex = Math.floor(Math.random() * apiKeys.length);
+  // const apiKey = apiKeys[randomIndex];
+  // console.log(
+  //   `[Server Config] using ${randomIndex + 1} of ${apiKeys.length} api key`,
+  // );
 
   const allowedWebDevEndpoints = (
     process.env.WHITE_WEBDEV_ENDPOINTS ?? ""
@@ -106,12 +122,12 @@ export const getServerSideConfig = () => {
 
   return {
     baseUrl: process.env.BASE_URL,
-    apiKey,
+    apiKey: getApiKey(process.env.OPENAI_API_KEY),
     openaiOrgId: process.env.OPENAI_ORG_ID,
 
     isAzure,
     azureUrl: process.env.AZURE_URL,
-    azureApiKey: process.env.AZURE_API_KEY,
+    azureApiKey: getApiKey(process.env.AZURE_API_KEY),
     azureApiVersion: process.env.AZURE_API_VERSION,
 
     isGroq,
@@ -130,11 +146,11 @@ export const getServerSideConfig = () => {
     chatNioApiVersion: process.env.CHATNIO_API_VERSION,
 
     isGoogle,
-    googleApiKey: process.env.GOOGLE_API_KEY,
+    googleApiKey: getApiKey(process.env.GOOGLE_API_KEY),
     googleUrl: process.env.GOOGLE_URL,
 
     isAnthropic,
-    anthropicApiKey: process.env.ANTHROPIC_API_KEY,
+    anthropicApiKey: getApiKey(process.env.ANTHROPIC_API_KEY),
     anthropicApiVersion: process.env.ANTHROPIC_API_VERSION,
     anthropicUrl: process.env.ANTHROPIC_URL,
 
